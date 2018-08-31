@@ -1,7 +1,7 @@
 import React from 'react';
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "../ErrorBoundary";
 import { App, AppHeader, Title, AppLogo } from './styles';
-import logo from './cuttingtech.jpg';
+import logo from '../images/cuttingtech.jpg';
 
 export default function Layout({ title, renderContent }){
   return (

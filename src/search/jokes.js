@@ -1,4 +1,4 @@
-import { search } from './api';
+import { search } from '../apis/searchApi';
 
 // saving response to the reducer. start by declaring some initial state
 const initialState = {
