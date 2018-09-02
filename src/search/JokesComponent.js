@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { actions } from './jokes';
 import styled from 'styled-components';
 import Filters from './Filters';
+import Intro from './Intro';
 
 const Content=styled.div`
-  display: flex;
   flex-direction: row;
 `;
 
@@ -30,6 +30,8 @@ const Joke = styled.div`
   }
 `;
 
+const TABS = ['search', 'kanban'];
+
 export class JokesComponent extends Component {
 
   componentDidMount(){
@@ -46,18 +48,32 @@ export class JokesComponent extends Component {
 
   render(){
     const { results } = this.props;
+
+    if(this.props.currentTab === "search"){
       return (
+        <div>
+          <Content>
+            <Intro/>
+          </Content>         
+          <Content>  
+              <JokeList>
+                {results.map(j => (
+                  <Joke key={j.id}>
+                    {j.joke}
+                  </Joke>
+                ))}
+              </JokeList>
+              <Filters />
+          </Content>
+        </div>
+      );
+    }else{
+      return ( 
         <Content>
-            <JokeList>
-              {results.map(j => (
-                <Joke key={j.id}>
-                  {j.joke}
-                </Joke>
-              ))}
-            </JokeList>
-            <Filters />
+          kanban board component
         </Content>
       );
+    }
   }
 }
 

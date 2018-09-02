@@ -1,12 +1,12 @@
 import React from 'react';
 import { withLayout } from './Layout';
-import Intro from './Intro';
 import JokesComponent from './JokesComponent';
+import Tabs from '../Tabs';
 
 export function Home(){
   return (
     <React.Fragment>
-      <Intro />
+      <Tabs />
       <JokesComponent />
     </React.Fragment>
   );
