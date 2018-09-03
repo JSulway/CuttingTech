@@ -6,7 +6,8 @@ import Filters from './Filters';
 import Intro from './Intro';
 
 const Content=styled.div`
-  flex-direction: row;
+  display: inline-flex;
+  width 100%;
 `;
 
 const JokeList = styled.div`
@@ -52,10 +53,8 @@ export class JokesComponent extends Component {
     if(this.props.currentTab === "search"){
       return (
         <div>
-          <Content>
             <Intro/>
-          </Content>         
-          <Content>  
+            <Content>
               <JokeList>
                 {results.map(j => (
                   <Joke key={j.id}>
@@ -64,11 +63,11 @@ export class JokesComponent extends Component {
                 ))}
               </JokeList>
               <Filters />
-          </Content>
+            </Content>
         </div>
       );
     }else{
-      return ( 
+      return (
         <Content>
           kanban board component
         </Content>
