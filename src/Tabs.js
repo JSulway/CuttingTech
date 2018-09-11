@@ -32,7 +32,4 @@ export class Tabs extends Component {
   }
 }
 
-
-
-// passing actions which will ensure the search function is injected as a component props
 export default connect( state => state.jokes , actions )(Tabs);

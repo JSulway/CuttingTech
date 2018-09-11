@@ -1,13 +1,13 @@
 import React from 'react';
 import { withLayout } from './search/Layout';
-import JokesComponent from './search/JokesComponent';
+import MainComponent from './MainComponent';
 import Tabs from './Tabs';
 
 export function Home(){
   return (
     <React.Fragment>
       <Tabs />
-      <JokesComponent />
+      <MainComponent />
     </React.Fragment>
   );
 }

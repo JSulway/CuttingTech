@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actions } from './jokes';
 import styled from 'styled-components';
-import Filters from './Filters';
-import Intro from './Intro';
+import { actions } from './search/jokes';
+import Filters from './search/Filters';
+import Intro from './search/Intro';
 
 const Content=styled.div`
   display: inline-flex;
@@ -33,7 +33,7 @@ const Joke = styled.div`
 
 const TABS = ['search', 'kanban'];
 
-export class JokesComponent extends Component {
+export class MainComponent extends Component {
 
   componentDidMount(){
     const { limit, page, search, filters: { term } } = this.props;
@@ -77,4 +77,4 @@ export class JokesComponent extends Component {
 }
 
 // passing actions which will ensure the search function is injected as a component props
-export default connect( state => state.jokes , actions )(JokesComponent);
+export default connect( state => state.jokes , actions )(MainComponent);
