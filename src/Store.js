@@ -11,14 +11,13 @@ const logger = Store => next => action => {
   return result;
 }
 
-// combine multiple reducers into one Store
+// combine multiple reducers into single Store
 const reducer = combineReducers({  jokes });
 
 const async = Store => next => action => {
   if(typeof action === 'function'){
     return action(Store.dispatch).catch(err => {
       console.log(err);
-      // demo this by throwing error when promise resolves
     });
   }
   return next(action);

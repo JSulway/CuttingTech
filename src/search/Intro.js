@@ -7,6 +7,9 @@ const Content=styled.div`
   background: lightgrey;
   height: 50px;
   line-height: 50px;
+  border: 1px 0px 0px 0px;
+  border-style: solid;
+  border-color: #222;
 `;
 
 export class Intro extends Component {
@@ -14,8 +17,8 @@ export class Intro extends Component {
     return (
       <Content>
         React and Redux Example.
-        Axios used to access JSON data from an API.
-        Data returned can be filtered using the search facility.
+        Axios used to access JSON data from an external API.
+        Data response returned can be filtered using the search facility.
         Paging is applied to results with next and previous buttons provided.
       </Content>
     );

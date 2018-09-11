@@ -1,7 +1,7 @@
 import React from 'react';
-import { withLayout } from './Layout';
-import JokesComponent from './JokesComponent';
-import Tabs from '../Tabs';
+import { withLayout } from './search/Layout';
+import JokesComponent from './search/JokesComponent';
+import Tabs from './Tabs';
 
 export function Home(){
   return (

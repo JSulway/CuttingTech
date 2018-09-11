@@ -4,3 +4,27 @@ body {
   font-family: sans-serif;
   font-weight: bold;
 }
+
+.selectedTab{
+  color:darkred;
+  background: lightgrey;
+  border: 1px 1px 1px 1px;
+  border-style: solid;
+  border-left-color: #222;
+  border-top-color: #222;
+  border-right-color: #222;
+  border-bottom-color: lightgrey;
+  border-bottom-width: 6px;
+  padding: 0px 10px 0px 10px;
+  font-size: 40px;
+}
+
+.nonselectedTab{
+  color:black;
+  background: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #222;
+  padding: 0px 10px 0px 10px;
+  font-size: 40px;
+}

@@ -7,11 +7,11 @@ const TABS = ['search', 'kanban'];
 
 export class Tabs extends Component {
 
-    constructor(props) {
+  constructor(props) {
 		super(props);
 		this.state = { currentTab: 'search' };
 	}
-   
+
   render(){
     const tabs = TABS.map((iteratedTab, i) => {
         const className = iteratedTab===this.props.currentTab ? 'selectedTab' : 'nonselectedTab';
@@ -21,13 +21,13 @@ export class Tabs extends Component {
             </a>
         );
     });
-    
+
     return(
         <div className='main-nav'>{tabs}</div>
-    );		
+    );
   }
 
-  handleTabClick(tab) { 
+  handleTabClick(tab) {
       this.props.setTab(tab);
   }
 }
