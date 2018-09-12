@@ -17,14 +17,27 @@ body {
   border-bottom-width: 6px;
   padding: 0px 10px 0px 10px;
   font-size: 40px;
+  cursor: pointer;
 }
 
 .nonselectedTab{
   color:black;
   background: white;
   border-style: solid;
+  border-top: none;
   border-width: 1px;
   border-color: #222;
   padding: 0px 10px 0px 10px;
   font-size: 40px;
+  cursor: pointer;
+}
+
+.selectedTab:hover{
+  color: red;
+  font-size:41px;
+}
+
+.nonselectedTab:hover{
+  color: red;
+  font-size:41px;
 }

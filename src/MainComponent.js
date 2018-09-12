@@ -3,21 +3,23 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { actions } from './search/jokes';
 import Filters from './search/Filters';
-import Intro from './search/Intro';
+import { Intro as SearchIntro } from './search/Intro';
+import { Intro as KanbanIntro } from './kanban/Intro';
+import Kanban from './kanban/Kanban';
 
 const Content=styled.div`
   display: inline-flex;
   width 100%;
 `;
 
-const JokeList = styled.div`
+const SearchComponentArea = styled.div`
   padding: 2rem;
   background-color: #222;
   width: 50%;
   height: 100%;
 `;
 
-const Joke = styled.div`
+const SearchItem = styled.div`
   display: flex;
   align-items: center;
   text-align: left;
@@ -29,6 +31,13 @@ const Joke = styled.div`
     background-color:forestgreen;
     color: white;
   }
+`;
+
+const KanbanComponentArea = styled.div`
+  padding: 2rem;
+  background-color: #222;
+  width: 100%;
+  height: 100%;
 `;
 
 const TABS = ['search', 'kanban'];
@@ -53,24 +62,30 @@ export class MainComponent extends Component {
     if(this.props.currentTab === "search"){
       return (
         <div>
-            <Intro/>
+            <SearchIntro/>
             <Content>
-              <JokeList>
+              <SearchComponentArea>
                 {results.map(j => (
-                  <Joke key={j.id}>
+                  <SearchItem key={j.id}>
                     {j.joke}
-                  </Joke>
+                  </SearchItem>
                 ))}
-              </JokeList>
+              </SearchComponentArea>
               <Filters />
             </Content>
         </div>
       );
     }else{
       return (
-        <Content>
-          kanban board component
-        </Content>
+        <div>
+          <KanbanIntro/>
+          <Content>
+            <KanbanComponentArea>
+              kanban board component
+              <Kanban />
+            </KanbanComponentArea>
+          </Content>
+        </div>
       );
     }
   }

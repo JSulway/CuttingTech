@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actions } from './jokes';
 import styled from 'styled-components';
 
 const Content=styled.div`
@@ -16,13 +15,12 @@ export class Intro extends Component {
   render(){
     return (
       <Content>
-        Axios used to access JSON data from an external API.
-        Data response returned can be filtered using the search facility.
-        Paging is applied to results with next and previous buttons provided.
+        Kanban board actively used for this sites development. Kanban state on server is held in a flat file and maintained via
+        GET, POST, PUT and DELETE JSON requests. Add, edit, change status and remove tasks from the board.
       </Content>
     );
   }
 }
 
 // passing actions which will ensure the search function is injected as a component props
-export default connect( state => state.jokes , actions )(Intro);
+export default connect()(Intro);

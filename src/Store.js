@@ -1,5 +1,14 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
+
+// reducer for search
 import { reducer as jokes } from './search/jokes';
+
+import thunk from 'redux-thunk';
+
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+// reducer for kanban
+import tasks from './kanban/kanbanReducer'
 
 // apply middleware to log actions to console
 const logger = Store => next => action => {
@@ -12,7 +21,7 @@ const logger = Store => next => action => {
 }
 
 // combine multiple reducers into single Store
-const reducer = combineReducers({  jokes });
+const reducer = combineReducers({  jokes, tasks });
 
 const async = Store => next => action => {
   if(typeof action === 'function'){
