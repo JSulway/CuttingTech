@@ -14,9 +14,9 @@ export function createTask({ title, description, status = 'Unstarted' }) {
 function editTaskSucceeded(task) {
   return {  type: 'EDIT_TASK_SUCCEEDED', payload: { task,  },  }
 }
-export function editTask(id, params = {}) {
+export function editTask(id, task, params = {}) {
   return (dispatch, getState) => {
-    const task = getTaskById(getState().tasks, id);
+    //const task = getTaskById(getState().tasks, id);
     const updatedTask = Object.assign({}, task, params);
 
     api.editTask(id, updatedTask).then(resp => {
@@ -24,6 +24,7 @@ export function editTask(id, params = {}) {
     });
   };
 }
+
 function getTaskById(tasks, id) {
   return tasks.find(task => task.id === id);
 }

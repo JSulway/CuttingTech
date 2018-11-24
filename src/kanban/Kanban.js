@@ -15,8 +15,8 @@ export class Kanban extends Component {
     this.props.dispatch(createTask({ title, description }));
   }
 
-  onStatusChange = (id, status) => {
-   this.props.dispatch(editTask(id, { status }));       // Creates the onStatusChange handler, which dispatches the editTask action creator
+  onStatusChange = (id, task, status) => {
+   this.props.dispatch(editTask(id, task, { status }));       // Creates the onStatusChange handler, which dispatches the editTask action creator
   }
 
   onRemoveTask = (task) => {
@@ -27,7 +27,7 @@ export class Kanban extends Component {
   render() {
     return (
       <div className="main-content">
-      hello
+        <TasksPage tasks={this.props.tasks} onCreateTask={this.onCreateTask} onStatusChange={this.onStatusChange} onRemoveTask={this.onRemoveTask}/>
       </div>
     );
   }

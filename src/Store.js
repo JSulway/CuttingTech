@@ -24,10 +24,9 @@ const logger = Store => next => action => {
 const reducer = combineReducers({  jokes, tasks });
 
 const async = Store => next => action => {
+  var here = "";
   if(typeof action === 'function'){
-    return action(Store.dispatch).catch(err => {
-      console.log(err);
-    });
+    return action(Store.dispatch)
   }
   return next(action);
 };

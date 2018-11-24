@@ -44,7 +44,7 @@ class TasksPage extends Component {     // ES6 classes are used when local state
   }
 
   renderTaskLists() {
-    const { tasks } = this.props;
+    const { tasks } = this.props.tasks;
     return TASK_STATUSES.map(status => {
       const statusTasks = tasks.filter(task => task.status === status);
       return (

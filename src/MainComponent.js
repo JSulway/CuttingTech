@@ -45,21 +45,20 @@ const TABS = ['search', 'kanban'];
 export class MainComponent extends Component {
 
   componentDidMount(){
-    const { limit, page, search, filters: { term } } = this.props;
-    search(term, page, limit);
+    const { limit, page, search, filters: { term } } = this.props.jokes;
+    this.props.search(term, page, limit);
   }
 
   componentWillReceiveProps(nextProps){
-    const { limit, page, search, filters: { term } } = nextProps;
-    if(page !== this.props.page || term !== this.props.filters.term){
+    const { limit, page, search, filters: { term } } = nextProps.jokes;
+    if(page !== this.props.jokes.page || term !== this.props.jokes.filters.term){
       search(term, page, limit);
     }
   }
 
   render(){
-    const { results } = this.props;
-
-    if(this.props.currentTab === "search"){
+    const { results } = this.props.jokes;
+    if(this.props.jokes.currentTab === "search"){
       return (
         <div>
             <SearchIntro/>
@@ -92,4 +91,4 @@ export class MainComponent extends Component {
 }
 
 // passing actions which will ensure the search function is injected as a component props
-export default connect( state => state.jokes , actions )(MainComponent);
+export default connect( state => state , actions )(MainComponent);
