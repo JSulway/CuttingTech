@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actions } from './jokes';
+import { actions } from './SearchActions';
 import styled from 'styled-components';
 
 const Content=styled.div`
@@ -25,4 +25,4 @@ export class Intro extends Component {
 }
 
 // passing actions which will ensure the search function is injected as a component props
-export default connect( state => state.jokes , actions )(Intro);
+export default connect( state => state.results , actions )(Intro);

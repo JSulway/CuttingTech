@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { actions } from './search/jokes';
-import Filters from './search/Filters';
+
 import { Intro as SearchIntro } from './search/Intro';
 import { Intro as KanbanIntro } from './kanban/Intro';
+import { Intro as ServiceIntro } from './demoDBDirectViaService/Intro';
+
 import Kanban from './kanban/Kanban';
+import Service from './demoDBDirectViaService/Service';
+import Search from './search/Search';
+
+// for passing and as a result ensuring search function is injected as a component props
+import { actions as searchActions } from './search/SearchActions';
+
+// filters for the search action
+import Filters from './search/Filters';
 
 const Content=styled.div`
   display: inline-flex;
   width 100%;
+`;
+
+const ComponentArea = styled.div`
+  padding: 2rem;
+  background-color: #222;
+  width: 100%;
+  height: 100%;
 `;
 
 const SearchComponentArea = styled.div`
@@ -19,70 +35,40 @@ const SearchComponentArea = styled.div`
   height: 100%;
 `;
 
-const SearchItem = styled.div`
-  display: flex;
-  align-items: center;
-  text-align: left;
-  padding: 2rem 1rem;
-  background-color: white;
-  border: 1px solid darkgray;
-
-  &:hover {
-    background-color:forestgreen;
-    color: white;
-  }
-`;
-
-const KanbanComponentArea = styled.div`
-  padding: 2rem;
-  background-color: #222;
-  width: 100%;
-  height: 100%;
-`;
-
-const TABS = ['search', 'kanban'];
-
 export class MainComponent extends Component {
 
-  componentDidMount(){
-    const { limit, page, search, filters: { term } } = this.props.jokes;
-    this.props.search(term, page, limit);
-  }
-
-  componentWillReceiveProps(nextProps){
-    const { limit, page, search, filters: { term } } = nextProps.jokes;
-    if(page !== this.props.jokes.page || term !== this.props.jokes.filters.term){
-      search(term, page, limit);
-    }
-  }
-
   render(){
-    const { results } = this.props.jokes;
-    if(this.props.jokes.currentTab === "search"){
+    if(this.props.main.currentTab === "search"){
       return (
         <div>
             <SearchIntro/>
             <Content>
               <SearchComponentArea>
-                {results.map(j => (
-                  <SearchItem key={j.id}>
-                    {j.joke}
-                  </SearchItem>
-                ))}
+                <Search />
               </SearchComponentArea>
               <Filters />
             </Content>
         </div>
       );
-    }else{
+    }else if(this.props.main.currentTab === "kanban"){
       return (
         <div>
           <KanbanIntro/>
           <Content>
-            <KanbanComponentArea>
-              kanban board component
+            <ComponentArea>
               <Kanban />
-            </KanbanComponentArea>
+            </ComponentArea>
+          </Content>
+        </div>
+      );
+    }else if(this.props.main.currentTab === "Node.js WS to SQLDB"){
+      return (
+        <div>
+          <ServiceIntro/>
+          <Content>
+            <ComponentArea>
+              <Service />
+            </ComponentArea>
           </Content>
         </div>
       );
@@ -91,4 +77,4 @@ export class MainComponent extends Component {
 }
 
 // passing actions which will ensure the search function is injected as a component props
-export default connect( state => state , actions )(MainComponent);
+export default connect( state => state, searchActions )(MainComponent);

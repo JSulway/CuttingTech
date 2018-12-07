@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actions } from './search/jokes';
+import { actions } from './MainActions';
 import styled from 'styled-components';
 
-const TABS = ['search', 'kanban'];
+const TABS = ['search', 'kanban','Node.js WS to SQLDB'];
 
 export class Tabs extends Component {
 
@@ -32,4 +32,4 @@ export class Tabs extends Component {
   }
 }
 
-export default connect( state => state.jokes , actions )(Tabs);
+export default connect( state => state , actions )(Tabs);
