@@ -16,9 +16,7 @@ function editTaskSucceeded(task) {
 }
 export function editTask(id, task, params = {}) {
   return (dispatch, getState) => {
-    //const task = getTaskById(getState().tasks, id);
     const updatedTask = Object.assign({}, task, params);
-
     api.editTask(id, updatedTask).then(resp => {
       dispatch(editTaskSucceeded(resp.data));
     });

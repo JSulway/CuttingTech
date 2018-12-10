@@ -8,7 +8,7 @@ const TASK_STATUSES = [                   // Defines the list of possible status
 
 const Task = props => {
   function onStatusChange(e) {           // Calls onStatusChange with the ID of the updated task and the value of the new status
-    props.onStatusChange(props.task.id, e.target.value)
+    props.onStatusChange(props.task.id, props.task, e.target.value)
   }
 
   function onRemoveTask(e) {           // Calls onStatusChange with the ID of the task to be removed
@@ -22,7 +22,6 @@ const Task = props => {
           <table>
           <tbody>
           <tr>
-            <td width="33%"></td>
             <td width="33%" align="right">
               <select className="statusDropDown" value={props.task.status} onChange={onStatusChange}> {/*Adds a callback to run when the drop-down’s change event fires*/}
                 {TASK_STATUSES.map(status => (
@@ -30,6 +29,8 @@ const Task = props => {
                 ))}
               </select>
             </td>
+          </tr>
+          <tr>
             <td width="33%" align="right">
               <img src="./images/cross.jpg" alt="Remove Task" onClick={onRemoveTask}></img>
             </td>

@@ -27,10 +27,30 @@ export class Service extends Component {
   render() {
     return (
       <div className="main-content">
-        Hello
         {this.props.planets.planets.map(j => (
                   <ServiceItem key={j.id}>
-                    {j.PLANET_NAME}
+                  <table>
+                    <tr>
+                      <td>
+                        Plant Name: {j.PLANET_NAME}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Class: {j.CLASS_TYPE}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Climate: {j.CLIMATE}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Notes: {j.NOTES}
+                      </td>
+                    </tr>
+                  </table>
                   </ServiceItem>
                 ))}
       </div>
