@@ -16,10 +16,11 @@ function editTaskSucceeded(task) {
 }
 export function editTask(id, task, params = {}) {
   return (dispatch, getState) => {
-    //const task = getTaskById(getState().tasks, id);
-    const updatedTask = Object.assign({}, task, params);
+   // const task = getTaskById(getState.tasks, id);
+   // const updatedTask = Object.assign({}, task, params);
+   const newparams = { status:params.status, title:task.title, description:task.description }
 
-    api.editTask(id, updatedTask).then(resp => {
+    api.editTask(id, newparams).then(resp => {
       dispatch(editTaskSucceeded(resp.data));
     });
   };

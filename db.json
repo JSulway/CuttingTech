@@ -1,45 +1,27 @@
 {
   "tasks": [
     {
-      "title": "hey there",
-      "description": "task1",
       "status": "Unstarted",
+      "title": "Colours and shapes",
+      "description": "Squares abd yellow circles",
       "id": 1
     },
     {
-      "title": "another task",
-      "description": "descript for second task",
-      "status": "Completed",
-      "id": 2
-    },
-    {
-      "title": "thirdly task",
-      "description": "and again",
       "status": "In Progress",
-      "id": 3
-    },
-    {
-      "title": "Travel",
-      "description": "Either take a holiday or travel the world",
-      "status": "In Progress",
+      "title": "Work and duty",
+      "description": "A soldiers work is his duty",
       "id": 4
     },
     {
-      "0": "U",
-      "1": "n",
-      "2": "s",
-      "3": "t",
-      "4": "a",
-      "5": "r",
-      "6": "t",
-      "7": "e",
-      "8": "d",
+      "status": "Completed",
+      "title": "Hobbys Of The Other Kind",
+      "description": "Mysterious hobbys which are a little arty",
       "id": 5
     },
     {
-      "title": "A large description task",
-      "description": "This task has a larger description in order to ensure the words do not fit within the limits of the box space provided.",
-      "status": "Completed",
+      "status": "Unstarted",
+      "title": "School of magic",
+      "description": "After five years of learning the wizards finally got it",
       "id": 6
     }
   ]

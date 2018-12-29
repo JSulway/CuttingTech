@@ -7,11 +7,9 @@ export default function tasks(state = { tasks: [] }, action) {
           return { tasks: state.tasks.concat(action.payload.task), };
       }
       case 'EDIT_TASK_SUCCEEDED': {     //Because json-server requires a full object to be passed along for PUT requests,
-        alert("in edit task succeeded")
         const { payload } = action;       //you must grab the task out of the store and merge in the new properties yourself
         return {
-          tasks: state.tasks.tasks.map(task => {
-            alert(state.tasks.tasks);
+          tasks: state.tasks.map(task => {
             if (task.id === payload.task.id) {          // Replaces the old task with the updated one
               return payload.task;
             }
