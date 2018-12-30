@@ -1,13 +1,25 @@
 {
   "tasks": [
     {
-      "status": "Unstarted",
+      "status": "Completed",
       "title": "Colours and shapes",
       "description": "Squares abd yellow circles",
       "id": 1
     },
     {
       "status": "In Progress",
+      "title": "Do you like movies",
+      "description": "Movies are all kinds of awesome so watch many of them",
+      "id": 2
+    },
+    {
+      "status": "In Progress",
+      "title": "Animal Farm",
+      "description": "Book by George Orwell along with the other one in 1984",
+      "id": 3
+    },
+    {
+      "status": "Unstarted",
       "title": "Work and duty",
       "description": "A soldiers work is his duty",
       "id": 4

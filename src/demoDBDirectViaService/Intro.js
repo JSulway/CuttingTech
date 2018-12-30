@@ -15,8 +15,7 @@ export class Intro extends Component {
   render(){
     return (
       <Content>
-        Kanban board actively used for this sites development. Kanban state on server is held in a flat file and maintained via
-        GET, POST, PUT and DELETE JSON requests. Add, edit, change status and remove tasks from the board.
+        Axios used to access JSON data from a Node Web Service also running locally. The service performs a SQL query against SQL DB.
       </Content>
     );
   }

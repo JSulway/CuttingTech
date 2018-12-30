@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { actions } from './jokes';
+import { actions } from './SearchActions';
 import { Button } from './styles';
-import { Search } from './Search';
+import { SearchForm } from './SearchForm';
 
 const Container = styled.div`
     width: 50%;
@@ -31,7 +31,7 @@ export function Filters({ page, totalPages, next, previous, setFilter}){
         <Container>
             <SearchText>Search for entries containing specified text</SearchText>
             <Content>
-                <Search setFilter={setFilter}/>
+                <SearchForm setFilter={setFilter}/>
                 <Button width={10} disabled={page === 1} onClick={previous}>
                 &lt;
                 </Button>
@@ -44,4 +44,4 @@ export function Filters({ page, totalPages, next, previous, setFilter}){
     );
 }
 
-export default connect(state => state.jokes, actions)(Filters);
+export default connect(state => state, actions)(Filters);
